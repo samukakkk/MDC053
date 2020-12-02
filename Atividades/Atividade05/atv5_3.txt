@@ -1,0 +1,16 @@
+create table departamento (
+	codigo INTEGER not null,
+	nome VARCHAR(100) not null,
+	primary KEY(codigo)
+);
+
+create table funcionario (
+	matricula INTEGER not null,
+	nome VARCHAR(100) not null,
+	salario DECIMAL(100) not null,
+	departamento INTEGER not null,
+	gerente INTEGER,
+	primary KEY(matricula),
+	foreign KEY(departamento) references departamento(codigo),
+	foreign KEY(gerente) references funcionario(matricula)
+);
